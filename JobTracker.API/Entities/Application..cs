@@ -10,8 +10,8 @@ public class Application
     public DateTime AppliedAt { get; set; } = DateTime.UtcNow;
     public DateTime? StatusUpdatedAt { get; set; }
     public string? Notes { get; set; }
-    public Guid UserId { get; set; }
-    public User User { get; set; } = null!;
+    public Guid? UserId { get; set; }
+    public User? User { get; set; }
     public List<Interview> Interviews { get; set; } = new();
 }
 
