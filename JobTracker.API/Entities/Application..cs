@@ -1,4 +1,6 @@
-﻿namespace JobTracker.API.Entities;
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace JobTracker.API.Entities;
 public class Application
 {
     public Guid Id { get; set; }
@@ -10,8 +12,8 @@ public class Application
     public DateTime AppliedAt { get; set; } = DateTime.UtcNow;
     public DateTime? StatusUpdatedAt { get; set; }
     public string? Notes { get; set; }
-    public Guid? UserId { get; set; }
-    public User? User { get; set; }
+    public string? UserId { get; set; }
+    public IdentityUser? User { get; set; }
     public List<Interview> Interviews { get; set; } = new();
 }
 
