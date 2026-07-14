@@ -14,8 +14,6 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
-var app = builder.Build();
-
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppDbContext>()
@@ -31,6 +29,8 @@ builder.Services
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 
 })
+
+
 .AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
@@ -47,7 +47,7 @@ builder.Services
 
 
 
-
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
