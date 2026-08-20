@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { login } from "../services/authService"
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function LoginPage() {
 
@@ -31,6 +31,9 @@ const handleLogin = async () => {
          <br/>
 
         <button onClick={handleLogin}>Login</button>
+         <br/>
+         <br/>
+        <label>Don't have an account? <Link to="/register">Register</Link></label>
     </div>
   )
 }
