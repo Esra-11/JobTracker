@@ -81,7 +81,7 @@ JobTracker/
 
 ```bash
 docker run --name jobtracker-db \
-  -e POSTGRES_PASSWORD=postgres \
+  -e POSTGRES_PASSWORD=your_password \
   -p 5432:5432 \
   -d postgres:15
 ```
