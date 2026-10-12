@@ -2,7 +2,7 @@
 
 A full-stack web application to track job applications, interview stages, and outcomes — built during an active job search in Germany.
 
-> **Status:** Work in Progress — core backend complete, frontend features in active development.
+> **Status:** Core backend complete. Frontend partially implemented — list view working, add/edit/delete planned.
 
 ---
 
@@ -35,14 +35,19 @@ Managing job applications in a spreadsheet quickly became unmanageable. I built 
 
 ## Features
 
-### Implemented
+### Backend (Complete)
 - User registration and login with JWT authentication
-- Protected routes — unauthenticated users are redirected to login
-- List all job applications (fetched from REST API)
+- REST API with full CRUD endpoints for applications and interviews
+- ASP.NET Identity for user management and password hashing
 - Swagger UI for API exploration and testing
+
+### Frontend (Partial)
+- Login and register pages with error handling
+- Protected routes — unauthenticated users redirected to login
+- Application list page — fetches data from REST API
 - Axios interceptor — JWT token automatically attached to every request
 
-### In Progress
+### Planned
 - Add / edit / delete applications via modal form
 - Status tracking: Applied → Interview → Offer / Rejected
 - Filter by status and date
@@ -54,7 +59,7 @@ Managing job applications in a spreadsheet quickly became unmanageable. I built 
 
 ```
 JobTracker/
-├── backend/
+├── JobTracker.API/
 │   ├── Controllers/          # ApplicationsController, AuthController
 │   ├── Entities/             # Application, Interview (EF Core models)
 │   ├── DTOs/                 # Request/response transfer objects
@@ -65,7 +70,6 @@ JobTracker/
     │   ├── pages/            # LoginPage, RegisterPage, ApplicationsPage, DashboardPage
     │   ├── components/       # ProtectedRoute
     │   ├── services/         # authService, applicationService, axiosInstance
-    │   └── context/          # AuthContext (planned)
 ```
 
 ---
@@ -89,7 +93,7 @@ docker run --name jobtracker-db \
 ### 2. Run the backend
 
 ```bash
-cd backend/JobTracker.API
+cd JobTracker.API
 dotnet ef database update
 dotnet run
 ```
